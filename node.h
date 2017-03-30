@@ -43,4 +43,4 @@ public:
 	}
 };
 
-	typedef pair<int, string> kvpair;
+typedef pair<int, string> kvpair;
