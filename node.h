@@ -16,10 +16,14 @@ public:
 		*left = nullptr,
 		*right = nullptr;
 
-	rbNode(k k, v val, nodeColor c): key(k), value(val), color(c){}
+	rbNode(k k, v val, nodeColor c = RED): key(k), value(val), color(c){}
 
 	void setColor(nodeColor c){
 		color = c;
+	}
+
+	bool isExternal() const{
+		return left == nullptr && right == nullptr;
 	}
 
 	bool isBlack() const{
@@ -28,6 +32,10 @@ public:
 
 	bool isRed() const{
 		return color == RED;
+	}
+
+	rbNode<k, v> sibling(){
+		return this == parent->left? parent->left : parent.right;
 	}
 
 	friend ostream &operator<<(const ostream &nout, const rbNode<k, v> &n){
