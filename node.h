@@ -38,7 +38,7 @@ public:
 		return this == parent->left? parent->left : parent.right;
 	}
 
-	friend ostream &operator<<(const ostream &nout, const rbNode<k, v> &n){
+	friend ostream &operator<<(ostream &nout, const rbNode<k, v> &n){
 		return nout << "(" << n.key << ", " << n.value << ")";
 	}
 };

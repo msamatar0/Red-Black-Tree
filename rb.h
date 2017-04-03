@@ -116,10 +116,11 @@ public:
 	//create tree with custom comparator
 	redBlackTree(function<int(k, k)> comp): compare(comp){}
 	
-	//add new node
+	//create new node with given key + value
 	//root is always black
 	//subsequent children are added as red
 	void add(k key, v value){
+		//if no root exists, create one
 		if(root == nullptr){
 			root = new leaf(key, value, BLACK);
 			nodeCount++;
@@ -127,6 +128,23 @@ public:
 		}
 
 		leaf *node = addHelper(key, value, root);
+
+		if(node->parent->isRed())
+			dblRed(node);
+
+		nodeCount++;
+	}
+
+	//add given node to tree
+	void add(leaf o){
+		//if no root exists, create one
+		if(root == nullptr){
+			root = new leaf(o.key, o.value, BLACK);
+			nodeCount++;
+			return;
+		}
+
+		leaf *node = addHelper(o.key, o.value, root);
 
 		if(node->parent->isRed())
 			dblRed(node);
