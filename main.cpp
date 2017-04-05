@@ -35,4 +35,20 @@ int main(){
 		cout << "  " << i << endl;
 	cout << "]\n";
 	redBlackTree<int, string> dict;
+	int i = 0;
+-	for(; i < 4; ++i)
+-		dict.add(nodes[i]);
+-	//dict.remove(41);
+-	for(; i < 7; ++i)
+-		dict.add(nodes[i]);
+-	//dict.remove(58);
+-	for(; i < 11; ++i)
+-		dict.add(nodes[i]);
+-	//dict.remove(73);
+-	for(; i < 19; ++i)
+-		dict.add(nodes[i]);
+-	//dict.remove(41);
+-	for(; i < 26; ++i)
+-		dict.add(nodes[i]);
+-	cout << dict << endl;
 }
