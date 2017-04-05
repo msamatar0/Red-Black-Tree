@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <utility>
 #include <functional>
 using namespace std;
 enum nodeColor{RED, BLACK};
@@ -22,6 +21,10 @@ public:
 		color = c;
 	}
 
+	nodeColor getColor() const{
+		return color;
+	}
+
 	bool isExternal() const{
 		return left == nullptr && right == nullptr;
 	}
@@ -30,12 +33,8 @@ public:
 		return color == BLACK;
 	}
 
-	bool isRed() const{
-		return color == RED;
-	}
-
-	rbNode<k, v> sibling(){
-		return this == parent->left? parent->left : parent.right;
+	rbNode<k, v> *sibling() const{
+		return this == parent->left? parent->left : this == parent->right? parent->right : nullptr;
 	}
 
 	friend ostream &operator<<(ostream &nout, const rbNode<k, v> &n){
@@ -43,4 +42,4 @@ public:
 	}
 };
 
-typedef pair<int, string> kvpair;
+	typedef rbNode<int, string> kvpair;
