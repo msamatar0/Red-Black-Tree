@@ -7,6 +7,7 @@ enum nodeColor{RED, BLACK};
 
 template<class k, class v> struct rbNode{
 private:
+	//
 	nodeColor color;
 public:
 	k key;
@@ -15,31 +16,26 @@ public:
 		*left = nullptr,
 		*right = nullptr;
 
-	rbNode(k k, v val, nodeColor c = RED): key(k), value(val), color(c){}
+	//Create node
+	//nodes are by default red
+	rbNode(k k, v val, nodeColor c = RED);
 
-	void setColor(nodeColor c){
-		color = c;
-	}
+	//Change node to red/black
+	void setColor(nodeColor c);
 
-	nodeColor getColor() const{
-		return color;
-	}
+	//Returns true if node has no children
+	bool isExternal() const;
 
-	bool isExternal() const{
-		return left == nullptr && right == nullptr;
-	}
+	//Returns true if node is black, false if red
+	bool isBlack() const;
+	
+	//Return sibling of node, whether it is a left or right child
+	rbNode<k, v> sibling() const;
 
-	bool isBlack() const{
-		return color == BLACK;
-	}
-
-	rbNode<k, v> *sibling() const{
-		return this == parent->left? parent->left : this == parent->right? parent->right : nullptr;
-	}
-
-	friend ostream &operator<<(ostream &nout, const rbNode<k, v> &n){
-		return nout << "(" << n.key << ", " << n.value << ")";
-	}
+	//Print contents of a node
+	template<class k, class v> friend ostream &operator<<(ostream &nout, const rbNode<k, v> &n);
 };
 
-	typedef rbNode<int, string> kvpair;
+typedef rbNode<int, string> kvpair;
+
+#include "node.cpp"

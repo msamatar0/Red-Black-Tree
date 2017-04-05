@@ -1,7 +1,8 @@
 #include "rbtree.h"
 
 int main(){
-	kvpair nodes[26]{
+	system("cls");
+	kvpair pairs[26]{
 		kvpair(18, "Laguna Niguel"),
 		kvpair(41, "Mission Viejo"),
 		kvpair(22, "San Clemente"),
@@ -30,24 +31,8 @@ int main(){
 		kvpair(62, "Laguna Hills")
 	};
 	cout << "Nodes[\n";
-	for(kvpair i : nodes)
+	for(kvpair i : pairs)
 		cout << "  " << i << endl;
 	cout << "]\n";
 	redBlackTree<int, string> dict;
-	int i = 0;
-	for(; i < 4; ++i)
-		dict.add(nodes[i]);
-	//dict.remove(41);
-	for(; i < 7; ++i)
-		dict.add(nodes[i]);
-	//dict.remove(58);
-	for(; i < 11; ++i)
-		dict.add(nodes[i]);
-	//dict.remove(73);
-	for(; i < 19; ++i)
-		dict.add(nodes[i]);
-	//dict.remove(41);
-	for(; i < 26; ++i)
-		dict.add(nodes[i]);
-	cout << dict << endl;
 }
