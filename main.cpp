@@ -2,7 +2,7 @@
 
 int main(){
 	system("cls");
-	kvpair pairs[26]{
+	kvpair nodes[26]{
 		kvpair(18, "Laguna Niguel"),
 		kvpair(41, "Mission Viejo"),
 		kvpair(22, "San Clemente"),
@@ -31,7 +31,7 @@ int main(){
 		kvpair(62, "Laguna Hills")
 	};
 	cout << "Nodes[\n";
-	for(kvpair i : pairs)
+	for(kvpair i : nodes)
 		cout << "  " << i << endl;
 	cout << "]\n";
 	redBlackTree<int, string> dict;
